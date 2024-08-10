@@ -1,0 +1,162 @@
+$mobile: 600px;
+$desktop: 1024px;
+$theme-color: #4B2E83;
+$theme-color-light: #EEE7FB;
+$theme-color-lightest: #F8F6FD;
+$theme-color-dark: #666666;
+$font-family: 'SF Pro Text', 'SF Pro Icons', 'Helvetica Neue', 'Helvetica', 'Arial', 'sans-serif';
+$font-size: 1rem;
+$font-size-large: 1.2rem;
+$font-size-largest: 2.3rem;
+$font-size-small: 0.94rem;
+$font-size-smallest: 0.64rem;
+$font-size-smaller: 0.84rem;
+$font-weight: 400;
+$font-weight-bold: 600;
+$font-weight-boldest: 800;
+$content-width: 1024px;
+$line-height: 2;
+
+html,
+body {
+  font-family: $font-family;
+  font-size: $font-size;
+  margin: 0;
+  line-height: $line-height;
+  width: 100%;
+  height: 100%;
+}
+
+body {
+  display: flex;
+  flex-direction: column;
+  text-rendering: geometricPrecision;
+}
+
+main {
+  flex: 1;
+}
+
+h1 {
+  font-size: 2rem;
+}
+
+h1,
+h2 {
+  margin-bottom: 0;
+  margin-top: 0;
+  font-weight: $font-weight-bold;
+}
+
+h2 {
+  font-size: 1.5rem;
+  width: 100%;
+  border-bottom: 1px solid #e0e0e0;
+  margin-bottom: .5rem;
+
+  small {
+    font-size: $font-size-smaller;
+  }
+}
+
+a {
+  color: black;
+  font-weight: $font-weight;
+  text-underline-offset: 2px;
+  text-decoration-thickness: 1px;
+  text-decoration-color: $theme-color;
+  text-decoration-style: dashed;
+}
+
+a:hover {
+  text-decoration-thickness: 2px;
+  color: $theme-color !important;
+}
+
+ul {
+  list-style-type: none;
+}
+
+.elsewhere li {
+  margin-right: 3rem;
+  line-height: 3;
+}
+
+ul a {
+  font-family: $font-family;
+  font-weight: $font-weight;
+}
+
+nav h1 a {
+  font-weight: $font-weight-boldest;
+  font-size: $font-size-largest;
+  text-decoration: none;
+  color: #20103F !important;
+}
+
+a:visited {
+  color: inherit;
+}
+
+nav h1,
+nav ul,
+nav li {
+  display: inline-block;
+}
+
+nav li {
+  margin-right: 2rem;
+}
+
+header {
+  width: 100%;
+  position: sticky;
+  top: 0;
+  z-index: 2;
+  background: #ffffffee;
+  border-bottom: 2px solid white;
+}
+
+header>nav,
+.content {
+  max-width: $content-width;
+  width: 100%;
+  margin: 0 auto;
+}
+
+@media screen and (max-width: $mobile) {
+
+  header,
+  .content {
+    width: calc(100% - 1rem);
+    padding-left: 0.5rem;
+    padding-right: 0.5rem;
+  }
+
+  header ul {
+    padding-left: 1rem;
+
+    li {
+      margin-right: 1rem;
+    }
+  }
+}
+
+@media screen and (max-width: $mobile) {
+  .content .headshot-mask {
+    display: block;
+    width: 160px;
+    height: 160px;
+  }
+}
+
+footer {
+  width: 100%;
+  text-align: center;
+  // border-top: 2px solid $theme-color-light;
+  padding-bottom: 2rem;
+  background: #f4f4f4;
+  border-radius: 0px;
+  text-align: center;
+  margin-top: 2rem;
+}
