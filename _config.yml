@@ -2,7 +2,7 @@ title: Life Science Accessibility Website
 email: sehi_lyi@hms.harvard.edu
 description: >- 
   This is a database and website of the accessibility evaluation results of life science data resources
-baseurl: "" # the subpath of your site, e.g. /blog
+baseurl: /life-sciences-a11y-evaluation-website # the subpath of your site, e.g. /blog
 url: "" # the base hostname & protocol for your site, e.g. http://example.com
 twitter_username: sehi_lyi
 github_username: sehilyi 
