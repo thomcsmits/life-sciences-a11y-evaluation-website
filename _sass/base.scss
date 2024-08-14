@@ -1,12 +1,14 @@
 $mobile: 600px;
 $desktop: 1024px;
+$theme-color-background: white;
 $theme-color: #4B2E83;
 $theme-color-light: #EEE7FB;
 $theme-color-lightest: #F8F6FD;
 $theme-color-dark: #666666;
 $font-family: 'SF Pro Text', 'SF Pro Icons', 'Helvetica Neue', 'Helvetica', 'Arial', 'sans-serif';
 $font-size: 1rem;
-$font-size-large: 1.2rem;
+$font-size-large: 1.3rem;
+$font-size-larger: 1.8rem;
 $font-size-largest: 2.3rem;
 $font-size-small: 0.94rem;
 $font-size-smallest: 0.64rem;
@@ -25,6 +27,7 @@ body {
   line-height: $line-height;
   width: 100%;
   height: 100%;
+  background: #f9f9f9;
 }
 
 body {
@@ -49,9 +52,10 @@ h2 {
 }
 
 h2 {
+  margin-top: 0.4rem;
   font-size: 1.5rem;
   width: 100%;
-  border-bottom: 1px solid #e0e0e0;
+  border-bottom: 1px solid #C5C5C5;
   margin-bottom: .5rem;
 
   small {
@@ -65,7 +69,6 @@ a {
   text-underline-offset: 2px;
   text-decoration-thickness: 1px;
   text-decoration-color: $theme-color;
-  text-decoration-style: dashed;
 }
 
 a:hover {
@@ -89,9 +92,13 @@ ul a {
 
 nav h1 a {
   font-weight: $font-weight-boldest;
-  font-size: $font-size-largest;
+  font-size: $font-size-large;
   text-decoration: none;
   color: #20103F !important;
+}
+
+nav a {
+  font-size: $font-size-large;
 }
 
 a:visited {
@@ -113,8 +120,8 @@ header {
   position: sticky;
   top: 0;
   z-index: 2;
-  background: #ffffffee;
-  border-bottom: 2px solid white;
+  background: $theme-color-background;
+  border-bottom: 1px solid lightgrey;
 }
 
 header>nav,
@@ -153,10 +160,63 @@ header>nav,
 footer {
   width: 100%;
   text-align: center;
-  // border-top: 2px solid $theme-color-light;
+  border-top: 1px solid lightgrey;
   padding-bottom: 2rem;
-  background: #f4f4f4;
+  background: white;
   border-radius: 0px;
   text-align: center;
   margin-top: 2rem;
+}
+
+.content .title-panel {
+  padding-top: 1rem;
+  padding-bottom: 2rem;
+}
+
+.content .title {
+  font-size: $font-size-largest;
+  font-weight: $font-weight-bold;
+}
+
+.content .subtitle {
+  font-size: $font-size-large;
+  color: grey;
+  line-height: 1.4;
+}
+
+.content #visual-statistics {
+  background: white;
+  margin-bottom: 1rem;
+  width: 100%;
+  height: 600px;
+  padding: 3rem;
+  border-top: 3px solid black;
+  border-bottom: 3px solid black;
+}
+
+#statistics-num-pages {
+  width: 100%;
+  height: 100%;
+}
+
+.team {
+  width: 100%;
+}
+
+.team,
+.team th,
+.team td {
+  border: 1px solid lightgrey;
+  border-collapse: collapse;
+  text-align: center;
+}
+
+.team th {
+  background: #E1E1E1;
+}
+
+.team th,
+.team td {
+  padding-top: 0.5rem;
+  padding-bottom: 0.5rem;
 }

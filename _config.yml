@@ -15,6 +15,15 @@ sass:
 collections:
   publications:
     output: true
+  plots:
+    output: true
+
+defaults:
+  - scope:
+      path: ""
+      type: "plots"
+    values:
+      layout: "plot"
 
 plugins:
   - jekyll-feed
