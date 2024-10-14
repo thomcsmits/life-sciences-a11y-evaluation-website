@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg id="Layer_1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 72 112">
+  <defs>
+    <style>
+      .cls-1 {
+        fill: #231f20;
+        stroke-linejoin: round;
+      }
+
+      .cls-1, .cls-2 {
+        stroke: #231f20;
+        stroke-linecap: round;
+        stroke-width: 12px;
+      }
+
+      .cls-2 {
+        fill: none;
+        stroke-miterlimit: 10;
+      }
+    </style>
+  </defs>
+  <line id="Horizontal_Line" class="cls-2" x1="6" y1="106" x2="66" y2="106"/>
+  <line id="Vertical_line" class="cls-2" x1="36" y1="6" x2="36" y2="76"/>
+  <polygon id="Triangle" class="cls-1" points="36 79.09 51 53.11 21 53.11 36 79.09"/>
+</svg>
