@@ -58,10 +58,7 @@ A page to showcase and enable downloading our data.
 
 ## Publications
 
-Sehi L'Yi, Thomas C Smits, Alexander Lex, Nils Gehlenborg, 
-Digital Accessibility of Life Sciences Data Portals and Journal Websites, 
-OSF Preprints, 10.31219/osf.io/5v98j
-
+Sehi L'Yi, Harrison G Zhang, Andrew P Mar, Thomas C Smits, Lawrence Weru, Sofía Rojas, Alexander Lex, Nils Gehlenborg. A comprehensive evaluation of life sciences data resources reveals significant accessibility barriers, OSF Preprints, [10.31219/osf.io/5v98j](https://doi.org/10.31219/osf.io/5v98j)
 
 <script>
   function fetchCSVFiles(filePaths) {
