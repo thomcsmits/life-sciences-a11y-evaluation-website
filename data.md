@@ -61,14 +61,6 @@ A page to showcase and enable downloading our data.
 Sehi L'Yi, Harrison G Zhang, Andrew P Mar, Thomas C Smits, Lawrence Weru, Sofía Rojas, Alexander Lex, Nils Gehlenborg. A comprehensive evaluation of life sciences data resources reveals significant accessibility barriers, OSF Preprints, [10.31219/osf.io/5v98j](https://doi.org/10.31219/osf.io/5v98j)
 
 <script>
-  function fetchCSVFiles(filePaths) {
-    return Promise.all(
-      filePaths.map(path => 
-        fetch(path).then(response => response.text())
-      )
-    );
-  }
-
   function toggleContent(id, filePath) {
     const content = document.getElementById(`file-content-${id}`);
     const button = document.querySelector(`[aria-controls="file-content-${id}"]`);
