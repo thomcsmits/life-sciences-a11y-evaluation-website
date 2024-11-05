@@ -18,8 +18,6 @@ done
 # ------------------------------------------------------------ #
 
 # zip files by file name
-files=$(find . -type f -name "*.csv" | sed 's|.*/||; s|\.csv$||' | sort | uniq)
-
 # first copy over files with new name
 for folder in *; do
     if [ "$folder" != "zips" ]; then
