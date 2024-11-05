@@ -11,28 +11,44 @@ A page to showcase and enable downloading our data.
 
 ### Files
 
-<ul class="file-list">
-  {% assign csv_files = site.static_files | where_exp: "file", "file.path contains '/assets/csv/' and file.extname == '.csv'" %}
-  {% for file in csv_files %}
-    <li class="file-item">
-      <div class="file-header">
-        <span class="file-title">{{ file.name }}</span>
-        <button aria-expanded="false" aria-controls="file-content-{{ forloop.index }}" class="toggle-button" onclick="toggleContent('{{ forloop.index }}', '{{ file.path | relative_url }}')">
-          <span class="visually-hidden">Expand section for {{ file.name }}</span>
-          <img id="icon-{{ forloop.index }}" src="{{ '/assets/icons/plus.svg' | relative_url }}" alt="Expand section for {{ file.name }}" width="24" height="24">
-        </button>
-        <a href="{{ file.path | relative_url }}" download class="download-link">
-          <span class="visually-hidden">Download {{ file.name }}</span>
-          <img src="{{ '/assets/icons/download.svg' | relative_url }}" alt="Download {{ file.name }}" width="24" height="24">
-        </a>
-      </div>
-      <div id="file-content-{{ forloop.index }}" class="file-content" hidden>
-        <table class="file-preview">
-        </table>
-      </div>
-    </li>
-  {% endfor %}
-</ul>
+<!-- Retrieve all unique dates -->
+{% assign csv_files_all = site.static_files | where_exp: "file", "file.path contains '/assets/csv' and file.extname == '.csv'" %}
+{% assign file_paths = csv_files_all | map: "path" %}
+{% assign unique_dates = "" %}
+{% for file_path in file_paths %}
+  {% assign file_path_array = file_path | split: "/" %}
+  {% assign date = file_path_array[3] %}
+  {% assign unique_dates = unique_dates | append: " + " | append: date %}
+{% endfor %}
+{% assign unique_dates = unique_dates | split: " + " | shift | uniq | reverse %}
+
+<!-- list files for each unique date -->
+{% for date in unique_dates %}
+  <h4>Analysis {{ date }}</h4>
+  <ul class="file-list">
+    {% assign csv_files = csv_files_all | where_exp: "file", "file.path contains date" %}
+
+    {% for file in csv_files %}
+      <li class="file-item">
+        <div class="file-header">
+          <span class="file-title">{{ file.name }}</span>
+          <button aria-expanded="false" aria-controls="file-content-{{ date | slugify }}-{{ file.name | slugify }}" class="toggle-button" onclick="toggleContent('{{ date | slugify }}-{{ file.name | slugify }}', '{{ file.path | relative_url }}')">
+            <span class="visually-hidden">Expand section for {{ file.name }}</span>
+            <img id="icon-{{ date | slugify }}-{{ file.name | slugify }}" src="{{ '/assets/icons/plus.svg' | relative_url }}" alt="Expand section for {{ file.name }}" width="24" height="24">
+          </button>
+          <a href="{{ file.path | relative_url }}" download class="download-link">
+            <span class="visually-hidden">Download {{ file.name }}</span>
+            <img src="{{ '/assets/icons/download.svg' | relative_url }}" alt="Download {{ file.name }}" width="24" height="24">
+          </a>
+        </div>
+        <div id="file-content-{{ date | slugify }}-{{ file.name | slugify }}" class="file-content" hidden>
+          <table class="file-preview">
+          </table>
+        </div>
+      </li>
+    {% endfor %}
+  </ul>
+{% endfor %}
 
 ### Top Issues
 <a href="{{ '/data/top-issues.csv' | relative_url }}" class="download-button" download>
