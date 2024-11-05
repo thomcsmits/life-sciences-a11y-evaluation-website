@@ -5,11 +5,12 @@ layout: home
 ---
 
 
-## Accessibility Data
+# Accessibility Data
 
-A page to showcase and enable downloading our data.
+This page showcases the data of the accessibility analyses and allows for easy downloading.
 
-### Files
+All data is also available on [GitHub](https://github.com/hms-dbmi/life-sciences-a11y-evaluation). 
+
 
 <!-- Retrieve all unique dates -->
 {% assign csv_files_all = site.static_files | where_exp: "file", "file.path contains '/assets/csv' and file.extname == '.csv'" %}
@@ -22,9 +23,61 @@ A page to showcase and enable downloading our data.
 {% endfor %}
 {% assign unique_dates = unique_dates | split: " + " | shift | uniq | reverse %}
 
+<!-- Retrieve all unique file names -->
+{% assign unique_filenames = "" %}
+{% for file_path in file_paths %}
+  {% assign file_path_array = file_path | split: "/" %}
+  {% assign filename_with_extension = file_path_array[4] | split: ".csv" %}
+  {% assign filename = filename_with_extension[0] %}
+  {% assign unique_filenames = unique_filenames | append: " + " | append: filename %}
+{% endfor %}
+{% assign unique_filenames = unique_filenames | split: " + " | shift | uniq | sort %}
+
+
+## Download in batch
+<ul class="download-list">
+  <li>
+    <span>Download all files</span>
+    <a href="{{ "/assets/csv/zips/all/a11y-evaluations.zip" | relative_url }}" download class="download-link">
+      <span class="visually-hidden">Download all files as zip</span>
+      <img src="{{ '/assets/icons/download.svg' | relative_url }}" alt="Download all files" width="24" height="24">
+    </a>
+  </li>
+  <li>
+    <span>Download all files with filename</span>
+    <label for="filename">Choose a filename:</label>
+    <select name="filename" id="filename">
+      <option value="" disabled selected>Select your option</option>
+      {% for filename in unique_filenames %}
+       <option value="{{ filename }}">{{ filename }}</option>
+      {% endfor %}
+    </select>
+    <a href="#" download class="download-link" id="download-filename">
+      <span class="visually-hidden">Download all files with selected filename as zip</span>
+      <img src="{{ '/assets/icons/download.svg' | relative_url }}" alt="Download all files with selected name" width="24" height="24">
+    </a>
+  </li>
+  <li>
+    <span>Download all files with date</span>
+    <label for="date">Choose a date:</label>
+    <select name="date" id="date">
+      <option value="" disabled selected>Select your option</option>
+      {% for date in unique_dates %}
+       <option value="{{ date }}">{{ date }}</option>
+      {% endfor %}
+    </select>
+    <a href="#" download class="download-link" id="download-date">
+      <span class="visually-hidden">Download all files with selected date as zip</span>
+      <img src="{{ '/assets/icons/download.svg' | relative_url }}" alt="Download all files with selected date" width="24" height="24">
+    </a>
+  </li>
+</ul>
+
+
+## View single analyses
 <!-- list files for each unique date -->
 {% for date in unique_dates %}
-  <h4>Analysis {{ date }}</h4>
+  <h3>Analysis {{ date }}</h3>
   <ul class="file-list">
     {% assign csv_files = csv_files_all | where_exp: "file", "file.path contains date" %}
 
@@ -56,6 +109,22 @@ A page to showcase and enable downloading our data.
 Sehi L'Yi, Harrison G Zhang, Andrew P Mar, Thomas C Smits, Lawrence Weru, Sofía Rojas, Alexander Lex, Nils Gehlenborg. A comprehensive evaluation of life sciences data resources reveals significant accessibility barriers, OSF Preprints, [10.31219/osf.io/5v98j](https://doi.org/10.31219/osf.io/5v98j)
 
 <script>
+  const filenameDownload = document.getElementById('download-filename');
+  const filenameSelect = document.getElementById('filename');
+
+  filenameSelect.addEventListener('change', function() {
+    const selectedFilename = filenameSelect.value;
+    filenameDownload.href = `{{ '/assets/csv/zips/by_name/' | relative_url }}${selectedFilename}.zip`;
+  });
+
+  const dateDownload = document.getElementById('download-date');
+  const dateSelect = document.getElementById('date');
+
+  dateSelect.addEventListener('change', function() {
+    const selectedDate = dateSelect.value;
+    dateDownload.href = `{{ '/assets/csv/zips/by_date/' | relative_url }}${selectedDate}.zip`;
+  });
+
   function toggleContent(id, filePath) {
     const content = document.getElementById(`file-content-${id}`);
     const button = document.querySelector(`[aria-controls="file-content-${id}"]`);
