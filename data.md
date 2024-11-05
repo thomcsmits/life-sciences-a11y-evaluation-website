@@ -50,27 +50,6 @@ A page to showcase and enable downloading our data.
   </ul>
 {% endfor %}
 
-### Top Issues
-<a href="{{ '/data/top-issues.csv' | relative_url }}" class="download-button" download>
-  Download CSV
-</a>
-
-<table class="file-preview">
-  {% assign limited_rows = site.data.top-issues | slice: 0, 5 %}
-  {% for row in limited_rows %}
-    {% if forloop.first %}
-    <tr>
-      {% for pair in row %}
-        <th>{{ pair[0] }}</th>
-      {% endfor %}
-    </tr>
-    {% endif %}
-
-    {% tablerow pair in row %}
-      {{ pair[1] }}
-    {% endtablerow %}
-  {% endfor %}
-</table>
 
 ## Publications
 
