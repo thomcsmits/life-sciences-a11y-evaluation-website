@@ -21,7 +21,6 @@ done
 # first copy over files with new name
 for folder in *; do
     if [ "$folder" != "zips" ]; then
-        echo folder $folder
         for file_path in $folder/*; do
             file_name=$(echo "$file_path" | sed 's|.*/||; s|\.csv$||')
             file_name_new="${folder}_${file_name}.csv"
