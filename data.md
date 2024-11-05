@@ -38,7 +38,7 @@ All data is also available on [GitHub](https://github.com/hms-dbmi/life-sciences
 <ul class="download-list">
   <li>
     <span>Download all files</span>
-    <a href="{{ "/assets/csv/zips/all/a11y-evaluations.zip" | relative_url }}" download class="download-link">
+    <a href="{{ "/assets/csv/zips/all/a11y-evaluations.zip" | relative_url }}" download class="download-link" tabindex=0>
       <span class="visually-hidden">Download all files as zip</span>
       <img src="{{ '/assets/icons/download.svg' | relative_url }}" alt="Download all files" width="24" height="24">
     </a>
@@ -52,7 +52,7 @@ All data is also available on [GitHub](https://github.com/hms-dbmi/life-sciences
        <option value="{{ filename }}">{{ filename }}</option>
       {% endfor %}
     </select>
-    <a href="#" download class="download-link" id="download-filename">
+    <a href="#" download class="download-link" id="download-filename" tabindex=0>
       <span class="visually-hidden">Download all files with selected filename as zip</span>
       <img src="{{ '/assets/icons/download.svg' | relative_url }}" alt="Download all files with selected name" width="24" height="24">
     </a>
@@ -66,7 +66,7 @@ All data is also available on [GitHub](https://github.com/hms-dbmi/life-sciences
        <option value="{{ date }}">{{ date }}</option>
       {% endfor %}
     </select>
-    <a href="#" download class="download-link" id="download-date">
+    <a href="#" download class="download-link" id="download-date" tabindex=0>
       <span class="visually-hidden">Download all files with selected date as zip</span>
       <img src="{{ '/assets/icons/download.svg' | relative_url }}" alt="Download all files with selected date" width="24" height="24">
     </a>
@@ -89,7 +89,7 @@ All data is also available on [GitHub](https://github.com/hms-dbmi/life-sciences
             <span class="visually-hidden">Expand section for {{ file.name }}</span>
             <img id="icon-{{ date | slugify }}-{{ file.name | slugify }}" src="{{ '/assets/icons/plus.svg' | relative_url }}" alt="Expand section for {{ file.name }}" width="24" height="24">
           </button>
-          <a href="{{ file.path | relative_url }}" download class="download-link">
+          <a href="{{ file.path | relative_url }}" download class="download-link" tabindex=0>
             <span class="visually-hidden">Download {{ file.name }}</span>
             <img src="{{ '/assets/icons/download.svg' | relative_url }}" alt="Download {{ file.name }}" width="24" height="24">
           </a>
