@@ -8,7 +8,7 @@ This website showcases the [Life Sciences Accessibility Evaluation](https://gith
 
 ```sh
 bundle install
-bundle exec jekyll serve --liverload
+bundle exec jekyll serve
 ```
 
 ## Cite
@@ -20,5 +20,5 @@ Sehi L'Yi, Harrison G Zhang, Andrew P Mar, Thomas C Smits, Lawrence Weru, Sofía
 ```
 
 ## Team
-This work is part of the [HIDIVE Lab](https://hidivelab.org) at Harvard Medical School.s
+This work is part of the [HIDIVE Lab](https://hidivelab.org) at Harvard Medical School.
  
