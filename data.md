@@ -36,40 +36,46 @@ All data is also available on [GitHub](https://github.com/hms-dbmi/life-sciences
 
 ## Download in batch
 <ul class="download-list">
-  <li>
-    <span>Download all files</span>
-    <a href="{{ "/assets/csv/zips/all/a11y-evaluations.zip" | relative_url }}" download class="download-link" tabindex=0>
-      <span class="visually-hidden">Download all files as zip</span>
-      <img src="{{ '/assets/icons/download.svg' | relative_url }}" alt="Download all files" width="24" height="24">
-    </a>
+  <li class="download-item">
+    <div class="download-content">
+      <span>Download all files</span>
+      <a href="{{ "/assets/csv/zips/all/a11y-evaluations.zip" | relative_url }}" download class="download-link" tabindex=0>
+        <span class="visually-hidden">Download all files as zip</span>
+        <img src="{{ '/assets/icons/download.svg' | relative_url }}" alt="Download all files" width="24" height="24">
+      </a>
+    </div>
   </li>
-  <li>
-    <span>Download all files with filename</span>
-    <label for="filename">Choose a filename:</label>
-    <select name="filename" id="filename">
-      <option value="" disabled selected>Select your option</option>
-      {% for filename in unique_filenames %}
-       <option value="{{ filename }}">{{ filename }}</option>
-      {% endfor %}
-    </select>
-    <a href="#" download class="download-link" id="download-filename" tabindex=0>
-      <span class="visually-hidden">Download all files with selected filename as zip</span>
-      <img src="{{ '/assets/icons/download.svg' | relative_url }}" alt="Download all files with selected name" width="24" height="24">
-    </a>
+  <li class="download-item">
+    <div class="download-content">
+      <span>Download all files with filename</span>
+      <label for="filename">Choose a filename:</label>
+      <select name="filename" id="filename">
+        <option value="" disabled selected>Select your option</option>
+        {% for filename in unique_filenames %}
+        <option value="{{ filename }}">{{ filename }}</option>
+        {% endfor %}
+      </select>
+      <a href="#" download class="download-link" id="download-filename" tabindex=0>
+        <span class="visually-hidden">Download all files with selected filename as zip</span>
+        <img src="{{ '/assets/icons/download.svg' | relative_url }}" alt="Download all files with selected name" width="24" height="24">
+      </a>
+    </div>
   </li>
-  <li>
-    <span>Download all files with date</span>
-    <label for="date">Choose a date:</label>
-    <select name="date" id="date">
-      <option value="" disabled selected>Select your option</option>
-      {% for date in unique_dates %}
-       <option value="{{ date }}">{{ date }}</option>
-      {% endfor %}
-    </select>
-    <a href="#" download class="download-link" id="download-date" tabindex=0>
-      <span class="visually-hidden">Download all files with selected date as zip</span>
-      <img src="{{ '/assets/icons/download.svg' | relative_url }}" alt="Download all files with selected date" width="24" height="24">
-    </a>
+  <li class="download-item">
+    <div class="download-content">
+      <span>Download all files with date</span>
+      <label for="date">Choose a date:</label>
+      <select name="date" id="date">
+        <option value="" disabled selected>Select your option</option>
+        {% for date in unique_dates %}
+        <option value="{{ date }}">{{ date }}</option>
+        {% endfor %}
+      </select>
+      <a href="#" download class="download-link" id="download-date" tabindex=0>
+        <span class="visually-hidden">Download all files with selected date as zip</span>
+        <img src="{{ '/assets/icons/download.svg' | relative_url }}" alt="Download all files with selected date" width="24" height="24">
+      </a>
+    </div>
   </li>
 </ul>
 
@@ -186,6 +192,32 @@ Sehi L'Yi, Harrison G Zhang, Andrew P Mar, Thomas C Smits, Lawrence Weru, Sofía
     overflow: hidden;
     clip: rect(0, 0, 0, 0);
     border: 0;
+  }
+
+  .download-list {
+    padding: 0;
+    margin: 20px 0;
+  }
+
+  .download-item {
+    background-color: #f9f9f9;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    padding: 15px;
+    margin-bottom: 15px;
+    display: flex;
+    flex-direction: column;
+  }
+
+  .download-content {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+
+  select {
+    border: 1px solid #ddd;
+    font-size: 14px;
   }
 
   .toggle-button, .download-link {
