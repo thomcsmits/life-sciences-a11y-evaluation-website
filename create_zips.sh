@@ -4,6 +4,7 @@ cd assets/csv
 # ------------------------------------------------------------ #
 
 # zip all files
+mkdir -p ./zips/all
 zip -r ./zips/all/a11y-evaluations.zip . -i "*.csv"
 
 # ------------------------------------------------------------ #
@@ -11,6 +12,7 @@ zip -r ./zips/all/a11y-evaluations.zip . -i "*.csv"
 # zip files by date
 for folder in *; do
     if [ "$folder" != "zips" ]; then
+        mkdir -p ./zips/by_date
         zip -r ./zips/by_date/${folder}.zip "$folder"
     fi
 done
