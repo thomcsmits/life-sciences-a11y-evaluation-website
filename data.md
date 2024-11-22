@@ -92,7 +92,7 @@ All data is also available on [GitHub](https://github.com/hms-dbmi/life-sciences
         <div class="file-header">
           <button aria-expanded="false" aria-controls="file-content-{{ date | slugify }}-{{ file.name | slugify }}" class="toggle-button" onclick="toggleContent('{{ date | slugify }}-{{ file.name | slugify }}', '{{ file.path | relative_url }}')">
             <span class="visually-hidden">Expand section for {{ file.name }}</span>
-            <img id="icon-{{ date | slugify }}-{{ file.name | slugify }}" src="{{ '/assets/icons/triangle-right.svg' | relative_url }}" alt="Expand section for {{ file.name }}" width="20" height="20">
+            <img id="icon-{{ date | slugify }}-{{ file.name | slugify }}" src="{{ '/assets/icons/triangle-right.svg' | relative_url }}" alt="Expand section for {{ file.name }}" width="16" height="16">
           </button>
           <span class="file-title">{{ file.name }}</span>
           <a href="{{ file.path | relative_url }}" download class="download-link" tabindex=0>
