@@ -90,11 +90,11 @@ All data is also available on [GitHub](https://github.com/hms-dbmi/life-sciences
     {% for file in csv_files %}
       <li class="file-item">
         <div class="file-header">
-          <span class="file-title">{{ file.name }}</span>
           <button aria-expanded="false" aria-controls="file-content-{{ date | slugify }}-{{ file.name | slugify }}" class="toggle-button" onclick="toggleContent('{{ date | slugify }}-{{ file.name | slugify }}', '{{ file.path | relative_url }}')">
             <span class="visually-hidden">Expand section for {{ file.name }}</span>
-            <img id="icon-{{ date | slugify }}-{{ file.name | slugify }}" src="{{ '/assets/icons/plus.svg' | relative_url }}" alt="Expand section for {{ file.name }}" width="24" height="24">
+            <img id="icon-{{ date | slugify }}-{{ file.name | slugify }}" src="{{ '/assets/icons/triangle-right.svg' | relative_url }}" alt="Expand section for {{ file.name }}" width="20" height="20">
           </button>
+          <span class="file-title">{{ file.name }}</span>
           <a href="{{ file.path | relative_url }}" download class="download-link" tabindex=0>
             <span class="visually-hidden">Download {{ file.name }}</span>
             <img src="{{ '/assets/icons/download.svg' | relative_url }}" alt="Download {{ file.name }}" width="24" height="24">
@@ -148,8 +148,8 @@ Sehi L'Yi, Harrison G Zhang, Andrew P Mar, Thomas C Smits, Lawrence Weru, Sofía
 
     // change icons
     icon.src = isExpanded 
-      ? "{{ '/assets/icons/plus.svg' | relative_url }}" 
-      : "{{ '/assets/icons/minus.svg' | relative_url }}";
+      ? "{{ '/assets/icons/triangle-right.svg' | relative_url }}" 
+      : "{{ '/assets/icons/triangle-down.svg' | relative_url }}";
     
     // check if expanded, else, fetch content
     if (!isExpanded && !content.getAttribute('data-loaded')) {
@@ -231,6 +231,11 @@ Sehi L'Yi, Harrison G Zhang, Andrew P Mar, Thomas C Smits, Lawrence Weru, Sofía
   .toggle-button:hover, .toggle-button:focus, 
   .download-link:hover, .download-link:focus {
     outline: 3px solid #005fcc;
+  }
+
+  .file-header {
+    display: flex;
+    align-items: center;
   }
 
   .file-preview {
