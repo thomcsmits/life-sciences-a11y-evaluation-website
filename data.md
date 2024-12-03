@@ -9,7 +9,7 @@ layout: home
 
 This page showcases the data of the accessibility analyses and allows for easy downloading.
 
-All data is also available on [GitHub](https://github.com/hms-dbmi/life-sciences-a11y-evaluation). 
+All data is also available on [our GitHub repository for analysis](https://github.com/hms-dbmi/life-sciences-a11y-evaluation). 
 
 
 <!-- Retrieve all unique dates -->
